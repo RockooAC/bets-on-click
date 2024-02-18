@@ -1,0 +1,162 @@
+
+<!--Website: wwww.codingdung.com-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <i class="bi bi-brightness-high-fill" id="mode__btn"></i>
+    <div class="container light-style flex-grow-1 container-p-y">
+        <div class="nav__container">
+            <h4 class="font-weight-bold py-3 mb-4">
+                Account settings
+            </h4>
+            <!-- <i class="bi bi-arrow-left-circle" id="returnHomeBtn"></i> -->
+            <!-- <button id="returnHomeBtn">Return to Home</button> -->
+        </div>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#account-general">General</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-change-password">Change password</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body media align-items-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                    class="d-block ui-w-80">
+                                <div class="media-body ml-4">
+                                    <label class="btn btn-outline-primary">
+                                        Upload new photo
+                                        <input type="file" class="account-settings-fileinput">
+                                    </label> &nbsp;
+                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control mb-1" id="username" value="nmaxwell">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" value="Nelle Maxwell">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="text" class="form-control mb-1" id="email" value="nmaxwell@mail.com">
+                                    <div class="alert alert-warning mt-3">
+                                        Your email is not confirmed. Please check your inbox.<br>
+                                        <a href="javascript:void(0)">Resend confirmation</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" class="form-control" value="Company Ltd.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-change-password">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Current password</label>
+                                    <input type="password" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" id="password">New password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Repeat new password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <!-- <button type="button" class="btn btn-primary" onclick="updateUser()">Save changes</button>&nbsp; -->
+            <input type="submit" class="btn btn-primary" onclick="updateUser()" value="Save changes">
+            <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+
+    <button id="loginBtn" style="display: none;">Logowanie</button>
+    <button id="registerBtn">Rejestracja</button>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Logowanie</h2>
+            <form id="loginForm">
+                <label for="loginUsername">Nazwa użytkownika:</label>
+                <input type="text" id="loginUsername" name="username" required>
+    
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password" required>
+    
+                <button type="submit">Zaloguj się</button>
+                <p>Nie masz konta? <button type="button" onclick="showRegisterModal()">Zarejestruj się</button></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rejestracja</h2>
+            <form id="registerForm">
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" name="email" required>
+    
+                <label for="registerUsername">Nazwa użytkownika:</label>
+                <input type="text" id="registerUsername" name="username" required>
+    
+                <label for="registerPassword">Hasło:</label>
+                <input type="password" id="registerPassword" name="password" required>
+    
+                <button type="submit">Zarejestruj się</button>
+                <p>Masz już konto? <button type="button" onclick="showLoginModal()">Zaloguj się</button></p>
+            </form>
+        </div>
+    </div>
+
+    <header id="header" style="display: none;">
+        <button id="loginBtn" style="display: none;">Logowanie</button>
+        <button id="registerBtn" style="display: none;">Rejestracja</button>
+        
+        <nav id="userNav">
+            <a href="profile.html">Profil</a>
+            <a href="bets.html">Zakłady</a>
+            <a href="events.html">Wydarzenia</a>
+            <a href="admin.html" id="adminPanel">Panel Admina</a>
+            <button id="logoutBtn">Wyloguj</button>
+        </nav>
+    </header>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

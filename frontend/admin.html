@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        .user-list {
+            background-color: #fff;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .user {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .user:hover {
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <i class="bi bi-brightness-high-fill" id="mode__btn"></i>
+    <header id="header">
+        <div class="navbar">
+      <div class="logo"><a href="index.html">Bet Place Service</a></div>
+       <ul class="links">
+          <li><a href="profile.html">Profil</a></li>
+          <li><a href="bets.html">Zakłady</a></li>
+          <li><a href="events.html">Wydarzenia</a></li>
+          <li id="adminPanel"><a href="admin.html">Admin</a></li>
+          <li><a href="portfel.html">Portfel</a></li>
+          <li><a href="portfel.html">Wallet balance: <span id="walletBalance"></span></a></li>
+       </ul>
+       <a href="#" class="action_btn" id="loginBtn">Login</a>
+       <a href="#" class="action_btn" id="registerBtn">Rejestracja</a>
+       <a href="#" class="action_btn" id="logoutBtn">Wyloguj</a>
+
+       <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+       </div>
+        </div>
+
+
+
+        <div class="dropdown_menu">
+              <li><a href="home">Home</a></li>
+              <li><a href="about">About</a></li>
+              <li><a href="services">Services</a></li>
+              <li><a href="contact">Contact</a></li>
+              <li><a href="#" class="action_btn">Get Started</a></li>
+        </div>
+
+
+
+
+      </header>
+
+      <div class="admin" id="admin-panel"></div>
+
+      <main>
+        <div class="user-list" id="usersContainer">
+            <h2>List of users</h2>
+        </div>
+      </main>
+
+    <!-- Modale -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Logowanie</h2>
+            <form id="loginForm">
+                <label for="loginUsername">Nazwa użytkownika:</label>
+                <input type="text" id="loginUsername" name="username" required>
+
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password" required>
+
+                <button type="submit">Zaloguj się</button>
+                <p>Nie masz konta? <button type="button" onclick="showRegisterModal()">Zarejestruj się</button></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rejestracja</h2>
+            <form id="registerForm">
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" name="email" required>
+
+                <label for="registerUsername">Nazwa użytkownika:</label>
+                <input type="text" id="registerUsername" name="username" required>
+
+                <label for="registerPassword">Hasło:</label>
+                <input type="password" id="registerPassword" name="password" required>
+
+                <button type="submit">Zarejestruj się</button>
+                <p>Masz już konto? <button type="button" onclick="showLoginModal()">Zaloguj się</button></p>
+            </form>
+        </div>
+    </div>
+
+
+
+<div>
+    <div id="usersContainer"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

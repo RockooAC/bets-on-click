@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wydarzenia</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        #betting-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .bet {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .bet:hover {
+            background-color: #f7f7f7;
+        }
+
+        .bet-info {
+            flex-grow: 1;
+        }
+
+        .delete-btn {
+            background-color: #ff5555;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <i class="bi bi-brightness-high-fill" id="mode__btn"></i>
+
+    <header>
+        <h1>Events</h1>
+    </header>
+
+    <div id="betting-container">
+        
+        <div>
+            
+        </div>
+        <div id="bet-list"></div>
+    </div>
+
+
+<!-- <header id="header">
+    <button id="loginBtn">Logowanie</button>
+    <button id="registerBtn">Rejestracja</button>
+    
+    <nav id="userNav" style="display: none;">
+        <a href="profile.html">Profil</a>
+        <a href="bets.html">Zakłady</a>
+        <a href="events.html">Wydarzenia</a>
+        <a href="admin.html" id="adminPanel" style="display: none;">Panel Admina</a>
+        <button id="logoutBtn">Wyloguj</button>
+    </nav>
+</header> -->
+
+<!-- Modale -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Logowanie</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Nazwa użytkownika:</label>
+            <input type="text" id="loginUsername" name="username" required>
+
+            <label for="loginPassword">Hasło:</label>
+            <input type="password" id="loginPassword" name="password" required>
+
+            <button type="submit">Zaloguj się</button>
+            <p>Nie masz konta? <button type="button" onclick="showRegisterModal()">Zarejestruj się</button></p>
+        </form>
+    </div>
+</div>
+
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Rejestracja</h2>
+        <form id="registerForm">
+            <label for="registerEmail">Email:</label>
+            <input type="email" id="registerEmail" name="email" required>
+
+            <label for="registerUsername">Nazwa użytkownika:</label>
+            <input type="text" id="registerUsername" name="username" required>
+
+            <label for="registerPassword">Hasło:</label>
+            <input type="password" id="registerPassword" name="password" required>
+
+            <button type="submit">Zarejestruj się</button>
+            <p>Masz już konto? <button type="button" onclick="showLoginModal()">Zaloguj się</button></p>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
